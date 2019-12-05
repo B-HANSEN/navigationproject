@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Image, Text, Button } from 'react-native';
 import { TextInput, List } from 'react-native-paper';
-import Scanner from '../components/Scanner';
 
 
 export default class LoginScreen extends React.Component {
@@ -19,13 +18,20 @@ export default class LoginScreen extends React.Component {
     render() {
       return (
 
-        <View style={styles.container}>        
-            <View style={{ alignItems: 'center' }}>
-                <Image
-                style={{width: 200, height: 200}}
-                source={{uri:'https://i.ibb.co/dgGrqwW/ic-launcher-foreground.png'}}
-                />
-            </View>
+        <View style={styles.container}>   
+            {/* <View>
+                <List.Section>
+                    <List.Accordion
+                        title="Login with QR Code"
+                        left={props => <List.Icon {...props} icon="qrcode" />}
+                    >
+                       <List.Item title="TODO: add link to Camera" />
+                     
+                  </List.Accordion>
+                 </List.Section>
+            </View> */}
+
+            {/* <Scanner /> */}
 
             <View>
                 <List.Section>
@@ -52,22 +58,6 @@ export default class LoginScreen extends React.Component {
                     </List.Accordion>
                 </List.Section>
             </View>
-
-            <View>
-                <Scanner />
-            </View>
-         
-            <View>
-                <List.Section>
-                    <List.Accordion
-                        title="Login with QR Code"
-                        left={props => <List.Icon {...props} icon="qrcode" />}
-                    >
-                       <List.Item title="TODO: add link to Camera" />
-                     
-                  </List.Accordion>
-                 </List.Section>
-            </View>
         </View>
       )
     }
@@ -76,9 +66,9 @@ export default class LoginScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 100,
+        // marginTop: 30,
     },
     button: {
-        marginTop: 100
+        // marginTop: 100
     },
   });

@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { NavigationEvents } from 'react-navigation';
 
 export default class BarcodeScannerExample extends React.Component {
   state = {
@@ -27,7 +28,7 @@ export default class BarcodeScannerExample extends React.Component {
     if (hasCameraPermission === null) {
       return (
         <View>
-          <Text>Requesting for camera permission</Text>;
+          {/* <Text>Requesting for camera permission</Text>; */}
         </View>
       )
     }
@@ -41,8 +42,8 @@ export default class BarcodeScannerExample extends React.Component {
     return (
       <View
         style={{
-          height: 200,
-          width: 200
+          height: 300,
+          width: 300
         }}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned}
@@ -64,7 +65,8 @@ export default class BarcodeScannerExample extends React.Component {
     console.log(input)
     let { type, data } = input
     this.setState({ scanned: true });
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    this.props.navigation.navigate('Alert');
   };
 }
 
@@ -81,3 +83,6 @@ const styles = StyleSheet.create({
     color: 'white',
   }
 });
+
+
+// onPress={() => this.props.navigation.navigate('Scanner')}
