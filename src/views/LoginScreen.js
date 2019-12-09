@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import { TextInput, List } from 'react-native-paper';
-
 
 
 export default class LoginScreen extends React.Component {
@@ -19,19 +18,17 @@ export default class LoginScreen extends React.Component {
     render() {
       return (
 
-        <View style={styles.container}>   
-
-
-
+        <View style={ styles.container }>   
             <View>
                 <List.Section>
                     <List.Accordion
                         title="Login with QR Code"
                         left={props => <List.Icon {...props} icon="qrcode" />}>    
-                        <Button 
+                        <View style={ styles.button }>
+                            <Button 
                             title="Tap to scan..."
-                            onPress={() => this.props.navigation.navigate('Scanner')}>
-                        </Button>
+                            onPress={() => this.props.navigation.navigate('Scanner')} />
+                        </View>
                     </List.Accordion>                         
                 </List.Section>
             </View>
@@ -71,9 +68,11 @@ export default class LoginScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        // marginTop: 30,
+       width: 380,
+       backgroundColor: 'lightgray',
+       alignSelf: 'center'
     },
     button: {
-        // marginTop: 100
+        alignItems: 'flex-start'
     },
   });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 
 import { createAppContainer } from 'react-navigation';
@@ -13,19 +13,14 @@ import ScannerScreen from './src/views/ScannerScreen';
 class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={ styles.container }>
         
-        <View style={{ alignItems: 'center' }}>
+        <View style={ styles.image }>
           <Image
           style={{width: 200, height: 200}}
           source={{uri:'https://i.ibb.co/dgGrqwW/ic-launcher-foreground.png'}}
           />
         </View>
-
-        {/* <Button 
-          title="Go to QR Code..."
-          onPress={() => this.props.navigation.navigate('Scanner')}
-        /> */}
       
         <LoginScreen navigation={ this.props.navigation } />
 
@@ -52,10 +47,11 @@ const AppContainer = createAppContainer(RootStack);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    backgroundColor: '#f7f7f7',
   },
+  image: {
+    alignItems: 'center'
+  }
 });
 
 
