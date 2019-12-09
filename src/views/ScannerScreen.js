@@ -83,6 +83,3 @@ const styles = StyleSheet.create({
     color: 'white',
   }
 });
-
-
-// onPress={() => this.props.navigation.navigate('Scanner')}
