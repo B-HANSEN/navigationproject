@@ -52,18 +52,18 @@ export default class BarcodeScannerExample extends React.Component {
         </BarCodeScanner>
 
         {scanned && (
-          <Button
-            title={"Tap to Scan Again"}
-            onPress={() => this.setState({ scanned: false })}
-          />
+            <Button style={ styles.button }
+              title={"Tap to Scan Again"}
+              onPress={() => this.setState({ scanned: false })}
+            />
         )}
       </View>
-    );
+    )
   }
 
   handleBarCodeScanned = (input) => {
     console.log(input)
-    let { type, data } = input
+    // let { type, data } = input
     this.setState({ scanned: true });
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     this.props.navigation.navigate('Alert');
@@ -81,5 +81,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: '70%',
     color: 'white',
-  }
+  },
+  button: {
+    alignItems: 'center',
+    color: 'white'
+  },
 });

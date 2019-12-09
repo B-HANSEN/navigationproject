@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import { TextInput, List } from 'react-native-paper';
 
 
@@ -18,20 +18,20 @@ export default class LoginScreen extends React.Component {
     render() {
       return (
 
-        <View style={styles.container}>   
-            {/* <View>
+        <View style={ styles.container }>   
+            <View>
                 <List.Section>
                     <List.Accordion
                         title="Login with QR Code"
-                        left={props => <List.Icon {...props} icon="qrcode" />}
-                    >
-                       <List.Item title="TODO: add link to Camera" />
-                     
-                  </List.Accordion>
-                 </List.Section>
-            </View> */}
-
-            {/* <Scanner /> */}
+                        left={props => <List.Icon {...props} icon="qrcode" />}>    
+                        <View style={ styles.button }>
+                            <Button 
+                            title="Tap to scan..."
+                            onPress={() => this.props.navigation.navigate('Scanner')} />
+                        </View>
+                    </List.Accordion>                         
+                </List.Section>
+            </View>
 
             <View>
                 <List.Section>
@@ -39,21 +39,23 @@ export default class LoginScreen extends React.Component {
                         title="Login with Email and Password"
                         left={props => <List.Icon {...props} icon="email" />}
                     >
-                
                         <TextInput
                             label='Server Name'
                             value={this.state.server}
                             onChangeText={server => this.setState({ server })}
                         />
+
                         <TextInput
                             label='Username'
                             value={this.state.user}
                             onChangeText={user => this.setState({ user })}
                         />
+          
                         <TextInput
                             label='Password'
                             value={this.state.password}
                             onChangeText={password => this.setState({ password })}
+                            secureTextEntry={true}
                         />  
                     </List.Accordion>
                 </List.Section>
@@ -66,9 +68,11 @@ export default class LoginScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        // marginTop: 30,
+       width: 380,
+       backgroundColor: 'lightgray',
+       alignSelf: 'center'
     },
     button: {
-        // marginTop: 100
+        alignItems: 'flex-start'
     },
   });
